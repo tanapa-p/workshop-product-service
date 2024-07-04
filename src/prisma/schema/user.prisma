@@ -1,13 +1,15 @@
 model User {
-  userId        String    @id @default(cuid())
-  userName      String
-  userFirstName String
-  userLastName  String
-  userPassword  String
-  userEmail     String
-  userPhone     String
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
+  userId         String    @id @default(cuid())
+  userName       String   @unique
+  userFirstName  String   
+  userLastName   String   
+  userPassword   String
+  userEmail      String
+  userPhone      String
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
   createdProduct Product[] @relation("createdByUser")
   updatedProduct Product[] @relation("updatedByUser")
+
+  @@unique([userFirstName,userLastName])
 }
