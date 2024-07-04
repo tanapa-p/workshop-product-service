@@ -1,0 +1,12 @@
+model Product {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  price       Float
+  createdAt   DateTime @default(now())
+  createdBy   String
+  updatedAt   DateTime @updatedAt
+  updatedBy   String
+  creator     User     @relation(fields: [createdBy], references: [userId], name: "createdByUser")
+  updater     User     @relation(fields: [updatedBy], references: [userId], name: "updatedByUser")
+}

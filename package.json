@@ -6,8 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npx tsc",
-    "start": "node dist/index.js",
-    "dev": "nodemon src/index.ts"
+    "dev": "nodemon - exec 'ts-node' "
+  },
+  "prisma":{
+    "schema": "src/prisma/schema"
   },
   "keywords": [],
   "author": "",
