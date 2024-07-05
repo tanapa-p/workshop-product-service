@@ -1,8 +1,8 @@
 model User {
   userId         String    @id @default(cuid())
-  userName       String   @unique
-  userFirstName  String   
-  userLastName   String   
+  userName       String    @unique
+  userFirstName  String
+  userLastName   String
   userPassword   String
   userEmail      String
   userPhone      String
@@ -11,5 +11,5 @@ model User {
   createdProduct Product[] @relation("createdByUser")
   updatedProduct Product[] @relation("updatedByUser")
 
-  @@unique([userFirstName,userLastName])
+  @@unique([userFirstName, userLastName])
 }

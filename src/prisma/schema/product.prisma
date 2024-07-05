@@ -1,6 +1,6 @@
 model Product {
   productId   String    @id @default(cuid())
-  productName String   @unique
+  productName String    @unique
   description String?
   price       Float
   stock       Int
