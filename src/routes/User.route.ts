@@ -1,21 +1,39 @@
 import { Router, Request, Response } from 'express';
+import { PrismaClient } from '@prisma/client';
+import { createUser, getUsers, getUsersByUserId, updateUser } from '@/services';
+
 const router = Router();
 
-import { PrismaClient } from '@prisma/client'
-const prisma = new PrismaClient()
-
-
-
-router.get("/users",  async function (req: Request, res: Response) {
-    const users = await prisma.user.findMany();
-    console.log(users);
-    res.send(users);
+router.get('/', async function (req: Request, res: Response) {
+  const result = await getUsers();
+  res.send(result);
 });
 
-import { getUsers } from '../services/User.service';
-router.get("/getUsers",  async function (req: Request, res: Response) {
-    console.log(getUsers);
-    res.send(getUsers());
+router.get('/:id', async function (req: Request, res: Response) {
+  try {
+    const response = await getUsersByUserId(req.params.id);
+    res.status(200).json(response);
+  } catch (error) {
+    res.status(404).json({ msg: error });
+  }
+});
+
+router.post('/createUser', async function (req: Request, res: Response) {
+  try {
+    const response = await createUser(req.body);
+    res.status(200).json(response);
+  } catch (error) {
+    res.status(404).json({ msg: error });
+  }
+});
+
+router.post('/updateUser', async function (req: Request, res: Response) {
+  try {
+    const response = await updateUser(req.body);
+    res.status(200).json(response);
+  } catch (error) {
+    res.status(404).json({ msg: error });
+  }
 });
 
 export default router;

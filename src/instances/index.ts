@@ -1,1 +1,1 @@
-export * from './FakerInstance'
+export * from './Faker.instance'

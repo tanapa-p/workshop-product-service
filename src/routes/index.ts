@@ -6,8 +6,8 @@ import userRoute from './User.route'
 
 export const routes = express.Router();
 
-routes.use(productRoute);
-routes.use(userRoute);
+routes.use('/products', productRoute);
+routes.use('/users', userRoute);
 
 export default routes; 
 

@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client';
-import genProducts from './Products.seed';
+import genProducts from './Product.seed';
 
 import genUsers from './User.seed';
 
