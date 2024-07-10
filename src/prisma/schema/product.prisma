@@ -10,4 +10,6 @@ model Product {
   updatedBy   String?
   creator     User      @relation(fields: [createdBy], references: [userId], name: "createdByUser")
   updater     User?     @relation(fields: [updatedBy], references: [userId], name: "updatedByUser")
+
+  orderProduct OrderProduct[] 
 }
