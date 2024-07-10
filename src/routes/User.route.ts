@@ -1,5 +1,4 @@
 import { Router, Request, Response } from 'express';
-import { PrismaClient } from '@prisma/client';
 import { createUser, getUsers, getUsersByUserId, updateUser } from '@/services';
 
 const router = Router();

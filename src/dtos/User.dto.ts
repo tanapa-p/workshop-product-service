@@ -19,3 +19,8 @@ export interface UpdateUserDto {
   createdAt?: string;
   updatedAt?: string;
 }
+
+export interface UserDto {
+  userId: string;
+  userName: string;
+}
